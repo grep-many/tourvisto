@@ -1,31 +1,31 @@
 // ======================
 // Icons
 // ======================
-import arrowDownRed from "./icons/arrow-down-red.svg";
-import arrowDown from "./icons/arrow-down.svg";
-import arrowLeft from "./icons/arrow-left.svg";
-import arrowUpGreen from "./icons/arrow-up-green.svg";
-import blueCheck from "./icons/blue-check.svg";
-import calendar from "./icons/calendar.svg";
-import check from "./icons/check.svg";
-import decrement from "./icons/decrement.svg";
-import destination from "./icons/destination.svg";
-import filter from "./icons/filter.svg";
-import google from "./icons/google.svg";
-import home from "./icons/home.svg";
-import increment from "./icons/increment.svg";
-import itineraryButton from "./icons/itinerary-button.svg";
-import itinerary from "./icons/itinerary.svg";
-import loader from "./icons/loader.svg";
-import locationMark from "./icons/location-mark.svg";
-import logo from "./icons/logo.svg";
-import logout from "./icons/logout.svg";
-import magicStar from "./icons/magic-star.svg";
-import menu from "./icons/menu.svg";
-import plus from "./icons/plus.svg";
-import refresh from "./icons/refresh.svg";
-import star from "./icons/star.svg";
-import users from "./icons/users.svg";
+import arrowDownRedSVG from "./icons/arrow-down-red.svg";
+import arrowDownSVG from "./icons/arrow-down.svg";
+import arrowLeftSVG from "./icons/arrow-left.svg";
+import arrowUpGreenSVG from "./icons/arrow-up-green.svg";
+import blueCheckSVG from "./icons/blue-check.svg";
+import calendarSVG from "./icons/calendar.svg";
+import checkSVG from "./icons/check.svg";
+import decrementSVG from "./icons/decrement.svg";
+import destinationSVG from "./icons/destination.svg";
+import filterSVG from "./icons/filter.svg";
+import googleSVG from "./icons/google.svg";
+import homeSVG from "./icons/home.svg";
+import incrementSVG from "./icons/increment.svg";
+import itineraryButtonSVG from "./icons/itinerary-button.svg";
+import itinerarySVG from "./icons/itinerary.svg";
+import loaderSVG from "./icons/loader.svg";
+import locationMarkSVG from "./icons/location-mark.svg";
+import logoSVG from "./icons/logo.svg";
+import logoutSVG from "./icons/logout.svg";
+import magicStarSVG from "./icons/magic-star.svg";
+import menuSVG from "./icons/menu.svg";
+import plusSVG from "./icons/plus.svg";
+import refreshSVG from "./icons/refresh.svg";
+import starSVG from "./icons/star.svg";
+import usersSVG from "./icons/users.svg";
 
 // ======================
 // Images
@@ -37,16 +37,16 @@ import cardImg3 from "./images/card-img-3.png";
 import cardImg4 from "./images/card-img-4.png";
 import cardImg5 from "./images/card-img-5.png";
 import cardImg6 from "./images/card-img-6.png";
-import content from "./images/content.png";
-import david from "./images/david.webp";
+import contentImg from "./images/content.png";
+import davidImg from "./images/david.webp";
 import heroImg from "./images/hero-img.png";
-import james from "./images/james.webp";
-import michael from "./images/michael.webp";
-import readme from "./images/readme.png";
-import sample1 from "./images/sample1.jpg";
-import sample2 from "./images/sample2.jpg";
-import sample3 from "./images/sample3.jpg";
-import sample4 from "./images/sample4.jpg";
+import jamesImg from "./images/james.webp";
+import michaelImg from "./images/michael.webp";
+import readmeImg from "./images/readme.png";
+import sample1Img from "./images/sample1.jpg";
+import sample2Img from "./images/sample2.jpg";
+import sample3Img from "./images/sample3.jpg";
+import sample4Img from "./images/sample4.jpg";
 import sampleJpeg from "./images/sample.jpeg";
 
 // ======================
@@ -54,31 +54,31 @@ import sampleJpeg from "./images/sample.jpeg";
 // ======================
 export {
   // Icons
-  arrowDownRed,
-  arrowDown,
-  arrowLeft,
-  arrowUpGreen,
-  blueCheck,
-  calendar,
-  check,
-  decrement,
-  destination,
-  filter,
-  google,
-  home,
-  increment,
-  itineraryButton,
-  itinerary,
-  loader,
-  locationMark,
-  logo,
-  logout,
-  magicStar,
-  menu,
-  plus,
-  refresh,
-  star,
-  users,
+  arrowDownRedSVG,
+  arrowDownSVG,
+  arrowLeftSVG,
+  arrowUpGreenSVG,
+  blueCheckSVG,
+  calendarSVG,
+  checkSVG,
+  decrementSVG,
+  destinationSVG,
+  filterSVG,
+  googleSVG,
+  homeSVG,
+  incrementSVG,
+  itineraryButtonSVG,
+  itinerarySVG,
+  loaderSVG,
+  locationMarkSVG,
+  logoSVG,
+  logoutSVG,
+  magicStarSVG,
+  menuSVG,
+  plusSVG,
+  refreshSVG,
+  starSVG,
+  usersSVG,
 
   // Images
   authImg,
@@ -88,15 +88,15 @@ export {
   cardImg4,
   cardImg5,
   cardImg6,
-  content,
-  david,
+  contentImg,
+  davidImg,
   heroImg,
-  james,
-  michael,
-  readme,
-  sample1,
-  sample2,
-  sample3,
-  sample4,
+  jamesImg,
+  michaelImg,
+  readmeImg,
+  sample1Img,
+  sample2Img,
+  sample3Img,
+  sample4Img,
   sampleJpeg,
 };

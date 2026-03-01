@@ -7,6 +7,7 @@ interface BaseUser {
 }
 
 interface UserData extends BaseUser {
+  itineraryCount: number;
   itineraryCreated: number | string;
   status: "user" | "admin";
 }
