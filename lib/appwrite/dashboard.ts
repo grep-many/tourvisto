@@ -28,18 +28,18 @@ export const getUsersAndTripsStats = async (): Promise<DashboardStats> => {
   return {
     totalUsers: users.total,
     usersJoined: {
-      currentMonth: filterByDate(users.documents, "joinedAt", startCurrent, undefined),
-      lastMonth: filterByDate(users.documents, "joinedAt", startPrev, endPrev),
+      currentMonth: filterByDate(users.documents, "$createdAt", startCurrent, undefined),
+      lastMonth: filterByDate(users.documents, "$createdAt", startPrev, endPrev),
     },
     userRole: {
       total: filterUsersByRole("user").length,
-      currentMonth: filterByDate(filterUsersByRole("user"), "joinedAt", startCurrent, undefined),
-      lastMonth: filterByDate(filterUsersByRole("user"), "joinedAt", startPrev, endPrev),
+      currentMonth: filterByDate(filterUsersByRole("user"), "$createdAt", startCurrent, undefined),
+      lastMonth: filterByDate(filterUsersByRole("user"), "$createdAt", startPrev, endPrev),
     },
     totalTrips: trips.total,
     tripsCreated: {
       currentMonth: filterByDate(trips.documents, "createdAt", startCurrent, undefined),
-      lastMonth: filterByDate(filterUsersByRole("user"), "joinedAt", startPrev, endPrev),
+      lastMonth: filterByDate(filterUsersByRole("user"), "$createdAt", startPrev, endPrev),
     },
   };
 };
@@ -51,7 +51,7 @@ export const getUserGrowthPerDay = async () => {
   );
 
   const userGrowth = users.documents.reduce((acc: { [key: string]: number }, user: Document) => {
-    const date = new Date(user.joinedAt);
+    const date = new Date(user.$createdAt);
     const day = date.toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",

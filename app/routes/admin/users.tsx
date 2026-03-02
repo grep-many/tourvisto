@@ -38,11 +38,11 @@ const AllUsers = ({ loaderData }: Route.ComponentProps) => {
           />
           <ColumnDirective field="email" headerText="Email Address" width="200" textAlign="Left" />
           <ColumnDirective
-            field="joinedAt"
+            field="$createdAt"
             headerText="Date Joined"
             width="140"
             textAlign="Left"
-            template={({ joinedAt }: { joinedAt: string }) => formatDate(joinedAt)}
+            template={({ $createdAt }: { $createdAt: string }) => formatDate($createdAt)}
           />
           <ColumnDirective
             field="status"

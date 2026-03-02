@@ -33,7 +33,6 @@ export const storeUserData = async () => {
         email: user.email,
         name: user.name,
         imageUrl: profilePicture,
-        joinedAt: new Date().toISOString(),
       },
     );
 
@@ -66,7 +65,7 @@ export const loginWithGoogle = async () => {
       `${window.location.origin}/404`,
     );
   } catch (error) {
-    console.error("Error during OAuth2 session creation:", error);
+    console.error("[Error] OAuth2 session creation:", error);
   }
 };
 
@@ -88,7 +87,7 @@ export const getUser = async () => {
       appwriteConfig.userCollectionId,
       [
         Query.equal("accountId", user.$id),
-        Query.select(["name", "email", "imageUrl", "joinedAt", "accountId"]),
+        Query.select(["name", "email", "imageUrl", "$createdAt", "accountId"]),
       ],
     );
 
