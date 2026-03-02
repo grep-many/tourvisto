@@ -8,8 +8,8 @@ export default [
     index("routes/admin/index.tsx"),
     route("users", "routes/admin/users.tsx"),
     route("trips", "routes/admin/trips.tsx"),
-    // route("trips/create", "routes/admin/create-trip.tsx"),
-    // route("trips/:tripId", "routes/admin/trip-detail.tsx"),
+    route("trips/create", "routes/admin/create-trip.tsx"),
+    route("trips/:tripId", "routes/admin/trip-detail.tsx"),
   ]),
   // layout("routes/root/page-layout.tsx", [
   //   index("routes/root/travel-page.tsx"),
