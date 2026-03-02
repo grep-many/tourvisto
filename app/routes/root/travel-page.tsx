@@ -2,7 +2,7 @@ import { Link, type LoaderFunctionArgs, useSearchParams } from "react-router";
 import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 import { cn, parseTripData } from "~/utils";
 import { Header, TripCard } from "../../../components";
-import { getUser ,getAllTrips } from "~/lib/appwrite";
+import { getUser, getAllTrips } from "~/lib/appwrite";
 import type { Route } from "~/.react-router/types/app/routes/admin/+types/trips";
 import { useState } from "react";
 import { PagerComponent } from "@syncfusion/ej2-react-grids";
