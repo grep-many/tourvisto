@@ -2,8 +2,9 @@ import type { LoaderFunctionArgs } from "react-router";
 import { getAllTrips, getTripById } from "~/lib/appwrite";
 import type { Route } from "./+types/trip-detail";
 import { cn, getFirstWord, parseTripData } from "~/utils";
-import { Header, InfoPill, TripCard } from "../../../components";
+import { Header, InfoPill, TripCard } from "~/components";
 import { ChipDirective, ChipListComponent, ChipsDirective } from "@syncfusion/ej2-react-buttons";
+import { starSVG } from "~/assets";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const { tripId } = params;
@@ -42,10 +43,10 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
   const allTrips = loaderData.allTrips as Trip[] | [];
 
   const pillItems = [
-    { text: travelStyle, bg: "!bg-pink-50 !text-pink-500" },
-    { text: groupType, bg: "!bg-primary-50 !text-primary-500" },
-    { text: budget, bg: "!bg-success-50 !text-success-700" },
-    { text: interests, bg: "!bg-navy-50 !text-navy-500" },
+    { text: travelStyle, bg: "bg-pink-50! text-pink-500!" },
+    { text: groupType, bg: "bg-primary-50! text-primary-500!" },
+    { text: budget, bg: "bg-success-50! text-success-700!" },
+    { text: interests, bg: "bg-navy-50! text-navy-500!" },
   ];
 
   const visitTimeAndWeatherInfo = [
@@ -82,7 +83,7 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
               key={i}
               className={cn(
                 "w-full rounded-xl object-cover",
-                i === 0 ? "h-[330px] md:col-span-2 md:row-span-2" : "h-[150px] md:row-span-1",
+                i === 0 ? "h-82.5 md:col-span-2 md:row-span-2" : "h-37.5 md:row-span-1",
               )}
             />
           ))}
@@ -95,7 +96,7 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
                 <ChipDirective
                   key={i}
                   text={getFirstWord(pill.text)}
-                  cssClass={`${pill.bg} !text-base !font-medium !px-4`}
+                  cssClass={`${pill.bg} text-base! font-medium! px-4!`}
                 />
               ))}
             </ChipsDirective>
@@ -106,14 +107,14 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
               .fill("null")
               .map((_, index) => (
                 <li key={index}>
-                  <img src="/assets/icons/star.svg" alt="star" className="size-[18px]" />
+                  <img src={starSVG} alt="star" className="size-4.5" />
                 </li>
               ))}
 
             <li className="ml-1">
               <ChipListComponent>
                 <ChipsDirective>
-                  <ChipDirective text="4.9/5" cssClass="!bg-yellow-50 !text-yellow-700" />
+                  <ChipDirective text="4.9/5" cssClass="bg-yellow-50! text-yellow-700!" />
                 </ChipsDirective>
               </ChipListComponent>
             </li>
@@ -146,7 +147,7 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
                 {dayPlan.activities.map((activity, index: number) => (
                   <li key={index}>
                     <span className="flex-shring-0 p-18-semibold">{activity.time}</span>
-                    <p className="flex-grow">{activity.description}</p>
+                    <p className="grow">{activity.description}</p>
                   </li>
                 ))}
               </ul>
@@ -162,7 +163,7 @@ const TripDetail = ({ loaderData }: Route.ComponentProps) => {
               <ul>
                 {section.items?.map((item) => (
                   <li key={item}>
-                    <p className="flex-grow">{item}</p>
+                    <p className="grow">{item}</p>
                   </li>
                 ))}
               </ul>

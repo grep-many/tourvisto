@@ -5,3 +5,4 @@ export * from "./trip-card";
 export * from "./stat-card";
 export * from "./header";
 export * from "./info-pill";
+export * from "./navbar"
