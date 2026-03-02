@@ -10,7 +10,8 @@ export async function clientLoader() {
     console.log("[DEBUG] clientLoader const user = ", user);
 
     if (user.$id) return redirect("/");
-  } catch (e) {
+  } catch (e: any) {
+    if (e.code === 401) return null;
     console.error("[Error] clientLoader", e);
   }
 }

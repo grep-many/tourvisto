@@ -123,18 +123,18 @@ export const CONFETTI_SETTINGS = {
   spread: 60, // Spread of the confetti burst
   colors: ["#ff0", "#ff7f00", "#ff0044", "#4c94f4", "#f4f4f4"], // Confetti colors
   decay: 0.95, // Gravity decay of the confetti
-} as const;
+};
 
 export const LEFT_CONFETTI = {
   ...CONFETTI_SETTINGS,
   angle: 45, // Direction of the confetti burst (90 degrees is top)
   origin: { x: 0, y: 1 }, // Center of the screen
-} as const;
+};
 
 export const RIGHT_CONFETTI = {
   ...CONFETTI_SETTINGS,
   angle: 135,
   origin: { x: 1, y: 1 },
-} as const;
+};
 
 export * from "./world_map";

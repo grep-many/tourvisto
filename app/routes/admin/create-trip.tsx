@@ -11,11 +11,16 @@ import { account } from "~/lib/appwrite";
 import { useNavigate } from "react-router";
 
 export const loader = async () => {
-  const response = await fetch("https://restcountries.com/v3.1/all");
+  const response = await fetch("https://restcountries.com/v3.1/all?fields=name,latlng,maps,flag");
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch countries");
+  }
+
   const data = await response.json();
 
   return data.map((country: any) => ({
-    name: country.flag + country.name.common,
+    name: `${country.flag} ${country.name.common}`, // emoji + name
     coordinates: country.latlng,
     value: country.name.common,
     openStreetMap: country.maps?.openStreetMap,

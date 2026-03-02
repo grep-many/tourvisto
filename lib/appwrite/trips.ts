@@ -5,7 +5,7 @@ export const getAllTrips = async (limit: number, offset: number) => {
   const allTrips = await database.listDocuments(
     appwriteConfig.databaseId,
     appwriteConfig.tripCollectionId,
-    [Query.limit(limit), Query.offset(offset), Query.orderDesc("createdAt")],
+    [Query.limit(limit), Query.offset(offset), Query.orderDesc("$createdAt")],
   );
 
   if (allTrips.total === 0) {

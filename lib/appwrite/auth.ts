@@ -17,11 +17,17 @@ export const getExistingUser = async (id: string) => {
 };
 
 export const storeUserData = async () => {
+  console.log("[STOREUSER]: Runnning");
+
   try {
     const user = await account.get();
     if (!user) throw new Error("User not found");
 
+    const existingUser = await getExistingUser(user.$id);
+    if (existingUser) return existingUser;
+
     const { providerAccessToken } = (await account.getSession("current")) || {};
+
     const profilePicture = providerAccessToken ? await getGooglePicture(providerAccessToken) : null;
 
     const createdUser = await database.createDocument(
@@ -36,9 +42,10 @@ export const storeUserData = async () => {
       },
     );
 
-    if (!createdUser.$id) redirect("/sign-in");
+    return createdUser;
   } catch (error) {
     console.error("Error storing user data:", error);
+    return null;
   }
 };
 
@@ -58,14 +65,16 @@ const getGooglePicture = async (accessToken: string) => {
 };
 
 export const loginWithGoogle = async () => {
+  console.log("[origin]", window.location.origin);
   try {
-    account.createOAuth2Session(
+    const session = account.createOAuth2Session(
       OAuthProvider.Google,
       `${window.location.origin}/`,
       `${window.location.origin}/404`,
     );
+    console.log("[session]", session);
   } catch (error) {
-    console.error("[Error] OAuth2 session creation:", error);
+    console.error("Error during OAuth2 session creation:", error);
   }
 };
 
@@ -78,6 +87,7 @@ export const logoutUser = async () => {
 };
 
 export const getUser = async () => {
+  console.log("[GETUSER]: Runnning");
   try {
     const user = await account.get();
     if (!user) return redirect("/sign-in");
