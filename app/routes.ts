@@ -1,10 +1,10 @@
-import { type RouteConfig, index, layout, route } from "@react-router/dev/routes";
+import { type RouteConfig, layout, route } from "@react-router/dev/routes";
 
 export default [
-  // route("sign-in", "routes/root/sign-in.tsx"),
+  route("sign-in", "routes/root/sign-in.tsx"),
   // route("api/create-trip", "routes/api/create-trip.ts"),
   layout("routes/admin/layout.tsx", [
-    index("routes/admin/index.tsx"),
+    route("dashboard", "routes/admin/index.tsx"),
     route("users", "routes/admin/users.tsx"),
     // route("trips", "routes/admin/trips.tsx"),
     // route("trips/create", "routes/admin/create-trip.tsx"),

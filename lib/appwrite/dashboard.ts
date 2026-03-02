@@ -1,5 +1,5 @@
 import { parseTripData } from "~/utils";
-import { database, appwriteConfig } from "./client";
+import { database, appwriteConfig } from "~/lib/appwrite";
 
 interface Document {
   [key: string]: any;

@@ -1,7 +1,5 @@
 import { Link, useLocation } from "react-router";
 import { cn } from "~/utils";
-import { IntlBase } from "@syncfusion/ej2-base";
-import getActualDateTimeFormat = IntlBase.getActualDateTimeFormat;
 import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 import { plusSVG } from "~/assets";
 
