@@ -9,6 +9,7 @@ import { world_map } from "~/constants/world_map";
 import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 import { account } from "~/lib/appwrite";
 import { useNavigate } from "react-router";
+import { loaderSVG, magicStarSVG } from "~/assets";
 
 export const loader = async () => {
   const response = await fetch("https://restcountries.com/v3.1/all?fields=name,latlng,maps,flag");
@@ -223,7 +224,7 @@ const CreateTrip = ({ loaderData }: Route.ComponentProps) => {
               disabled={loading}
             >
               <img
-                src={`/assets/icons/${loading ? "loader.svg" : "magic-star.svg"}`}
+                src={loading ? loaderSVG : magicStarSVG}
                 className={cn("size-5", { "animate-spin": loading })}
               />
               <span className="p-16-semibold text-white">

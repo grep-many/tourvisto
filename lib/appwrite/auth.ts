@@ -16,19 +16,13 @@ export const getExistingUser = async (id: string) => {
   }
 };
 
-export const storeUserData = async () => {
-  console.log("[STOREUSER]: Runnning");
-
+export const storeUserData = async (imageUrl: string) => {
   try {
     const user = await account.get();
     if (!user) throw new Error("User not found");
 
     const existingUser = await getExistingUser(user.$id);
     if (existingUser) return existingUser;
-
-    const { providerAccessToken } = (await account.getSession("current")) || {};
-
-    const profilePicture = providerAccessToken ? await getGooglePicture(providerAccessToken) : null;
 
     const createdUser = await database.createDocument(
       appwriteConfig.databaseId,
@@ -38,7 +32,7 @@ export const storeUserData = async () => {
         accountId: user.$id,
         email: user.email,
         name: user.name,
-        imageUrl: profilePicture,
+        imageUrl,
       },
     );
 
@@ -49,14 +43,14 @@ export const storeUserData = async () => {
   }
 };
 
-const getGooglePicture = async (accessToken: string) => {
+export const getGooglePicture = async (accessToken: string) => {
   try {
     const response = await fetch("https://people.googleapis.com/v1/people/me?personFields=photos", {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
     if (!response.ok) throw new Error("Failed to fetch Google profile picture");
-
     const { photos } = await response.json();
+    console.log("[Photos]", photos);
     return photos?.[0]?.url || null;
   } catch (error) {
     console.error("Error fetching Google picture:", error);
@@ -65,16 +59,14 @@ const getGooglePicture = async (accessToken: string) => {
 };
 
 export const loginWithGoogle = async () => {
-  console.log("[origin]", window.location.origin);
   try {
-    const session = account.createOAuth2Session(
+    account.createOAuth2Token(
       OAuthProvider.Google,
-      `${window.location.origin}/`,
-      `${window.location.origin}/404`,
+      `${window.location.origin}/auth/callback`,
+      `${window.location.origin}/sign-in`,
     );
-    console.log("[session]", session);
   } catch (error) {
-    console.error("Error during OAuth2 session creation:", error);
+    console.error("Error during OAuth2 token creation:", error);
   }
 };
 
@@ -87,7 +79,6 @@ export const logoutUser = async () => {
 };
 
 export const getUser = async () => {
-  console.log("[GETUSER]: Runnning");
   try {
     const user = await account.get();
     if (!user) return redirect("/sign-in");

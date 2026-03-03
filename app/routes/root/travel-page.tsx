@@ -6,7 +6,7 @@ import { getUser, getAllTrips } from "~/lib/appwrite";
 import type { Route } from "~/.react-router/types/app/routes/admin/+types/trips";
 import { useState } from "react";
 import { PagerComponent } from "@syncfusion/ej2-react-grids";
-import { logoSVG } from "~/assets";
+import { davidImg, logoSVG } from "~/assets";
 
 const FeaturedDestination = ({
   containerClass = "",
@@ -36,7 +36,7 @@ const FeaturedDestination = ({
 
           <figure className="flex items-center gap-2">
             <img
-              src="/assets/images/david.webp"
+              src={davidImg}
               alt="user"
               className={cn("aspect-square size-4 rounded-full", { "size-11": bigCard })}
             />

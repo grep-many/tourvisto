@@ -4,6 +4,7 @@ import type { Route } from "./+types/payment-success";
 import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 import confetti from "canvas-confetti";
 import { LEFT_CONFETTI, RIGHT_CONFETTI } from "~/constants";
+import { arrowLeftSVG, checkSVG, itineraryButtonSVG } from "~/assets";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   return params;
@@ -19,7 +20,7 @@ const PaymentSuccess = ({ loaderData }: Route.ComponentProps) => {
     <main className="payment-success wrapper">
       <section>
         <article>
-          <img src="/assets/icons/check.svg" className="size-24" />
+          <img src={checkSVG} className="size-24" />
           <h1>Thank & Welcome Aboard!</h1>
 
           <p>
@@ -29,14 +30,14 @@ const PaymentSuccess = ({ loaderData }: Route.ComponentProps) => {
 
           <Link to={`/travel/${loaderData?.tripId}`} className="w-full">
             <ButtonComponent className="button-class h-11! w-full!">
-              <img src="/assets/icons/itinerary-button.svg" className="size-5" />
+              <img src={itineraryButtonSVG} className="size-5" />
 
               <span className="p-16-semibold text-white">View trip details</span>
             </ButtonComponent>
           </Link>
           <Link to={"/"} className="w-full">
             <ButtonComponent className="button-class-secondary h-11! w-full!">
-              <img src="/assets/icons/arrow-left.svg" className="size-5" />
+              <img src={arrowLeftSVG} className="size-5" />
 
               <span className="p-16-semibold">Return to homepage</span>
             </ButtonComponent>

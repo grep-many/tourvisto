@@ -1,4 +1,4 @@
-import { decrementSVG, incrementSVG } from "~/assets";
+import { arrowDownRedSVG, arrowUpGreenSVG, decrementSVG, incrementSVG } from "~/assets";
 import { calculateTrendPercentage, cn } from "~/utils";
 
 export const StatCard = ({ headerTitle, total, lastMonthCount, currentMonthCount }: StatsCard) => {
@@ -17,7 +17,7 @@ export const StatCard = ({ headerTitle, total, lastMonthCount, currentMonthCount
           <div className="flex items-center gap-2">
             <figure className="flex items-center gap-1">
               <img
-                src={`/assets/icons/${isDecrement ? "arrow-down-red.svg" : "arrow-up-green.svg"}`}
+                src={isDecrement ? arrowDownRedSVG : arrowUpGreenSVG}
                 className="size-5"
                 alt="arrow"
               />

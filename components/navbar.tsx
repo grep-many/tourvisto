@@ -1,4 +1,5 @@
 import { Link, useLoaderData, useLocation, useNavigate, useParams } from "react-router";
+import { logoSVG, logoutSVG } from "~/assets";
 import { logoutUser } from "~/lib/appwrite";
 import { cn } from "~/utils";
 
@@ -9,8 +10,8 @@ export const RootNavbar = () => {
   const user = useLoaderData();
 
   const handleLogout = async () => {
-    await logoutUser();
     navigate("/sign-in");
+    await logoutUser();
   };
 
   return (
@@ -22,12 +23,12 @@ export const RootNavbar = () => {
     >
       <header className="root-nav wrapper">
         <Link to="/" className="link-logo">
-          <img src="/assets/icons/logo.svg" alt="logo" className="size-7.5" />
+          <img src={logoSVG} alt="logo" className="size-7.5" />
           <h1>Tourvisto</h1>
         </Link>
 
         <aside>
-          {user.status === "admin" && (
+          {user?.status === "admin" && (
             <Link
               to="/dashboard"
               className={cn("text-base font-normal text-white", {
@@ -45,7 +46,7 @@ export const RootNavbar = () => {
           />
 
           <button onClick={handleLogout} className="cursor-pointer">
-            <img src="/assets/icons/logout.svg" alt="logout" className="size-6 rotate-180" />
+            <img src={logoutSVG} alt="logout" className="size-6 rotate-180" />
           </button>
         </aside>
       </header>

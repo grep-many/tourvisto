@@ -9,6 +9,7 @@ import {
   ChipListComponent,
   ChipsDirective,
 } from "@syncfusion/ej2-react-buttons";
+import { arrowLeftSVG, starSVG } from "~/assets";
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const { tripId } = params;
@@ -63,7 +64,7 @@ const TravelDetail = ({ loaderData }: Route.ComponentProps) => {
     <main className="travel-detail wrapper pt-40">
       <div className="travel-div">
         <Link to="/" className="back-link">
-          <img src="/assets/icons/arrow-left.svg" alt="back icon" />
+          <img src={arrowLeftSVG} alt="back icon" />
           <span>Go back</span>
         </Link>
 
@@ -116,7 +117,7 @@ const TravelDetail = ({ loaderData }: Route.ComponentProps) => {
                 .fill("null")
                 .map((_, index) => (
                   <li key={index}>
-                    <img src="/assets/icons/star.svg" alt="star" className="size-4.5" />
+                    <img src={starSVG} alt="star" className="size-4.5" />
                   </li>
                 ))}
 

@@ -6,9 +6,6 @@ import { googleSVG, logoSVG } from "~/assets";
 export async function clientLoader() {
   try {
     const user = await account.get();
-
-    console.log("[DEBUG] clientLoader const user = ", user);
-
     if (user.$id) return redirect("/");
   } catch (e: any) {
     if (e.code === 401) return null;
