@@ -8,7 +8,7 @@ export async function clientLoader() {
     if (!user.$id) return redirect("/sign-in");
     return await getExistingUser(user.$id);
   } catch (e) {
-    console.log("Error fetching user", e);
+    console.error("Error fetching user", e);
     return redirect("/sign-in");
   }
 }

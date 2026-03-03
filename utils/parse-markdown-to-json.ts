@@ -1,15 +1,20 @@
-export function parseMarkdownToJson(markdownText: string): unknown | null {
-  const regex = /```json\n([\s\S]+?)\n```/;
+export function parseMarkdownToJson(markdownText: string): any | null {
+  const regex = /```json\s+([\s\S]*?)\s+```/;
   const match = markdownText.match(regex);
+  const cleanText = match ? match[1] : markdownText;
 
-  if (match && match[1]) {
+  try {
+    return JSON.parse(cleanText.trim());
+  } catch (error) {
     try {
-      return JSON.parse(match[1]);
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
-      return null;
+      const start = cleanText.indexOf("{");
+      const end = cleanText.lastIndexOf("}");
+      if (start !== -1 && end !== -1) {
+        return JSON.parse(cleanText.substring(start, end + 1));
+      }
+    } catch (innerError) {
+      console.error("No valid JSON found in text:", innerError);
     }
+    return null;
   }
-  console.error("No valid JSON found in markdown text.");
-  return null;
 }

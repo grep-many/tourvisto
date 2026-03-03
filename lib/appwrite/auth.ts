@@ -50,7 +50,6 @@ export const getGooglePicture = async (accessToken: string) => {
     });
     if (!response.ok) throw new Error("Failed to fetch Google profile picture");
     const { photos } = await response.json();
-    console.log("[Photos]", photos);
     return photos?.[0]?.url || null;
   } catch (error) {
     console.error("Error fetching Google picture:", error);
@@ -111,7 +110,7 @@ export const getAllUsers = async (limit: number, offset: number) => {
 
     return { users, total };
   } catch (e) {
-    console.log("Error fetching users");
+    console.error("Error fetching users");
     return { users: [], total: 0 };
   }
 };

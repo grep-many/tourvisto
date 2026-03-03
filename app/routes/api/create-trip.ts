@@ -1,5 +1,5 @@
 import { type ActionFunctionArgs, data } from "react-router";
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { parseMarkdownToJson, parseTripData } from "~/utils";
 import { appwriteConfig, database } from "~/lib/appwrite";
 import { ID } from "appwrite";
@@ -9,7 +9,9 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const { country, numberOfDays, travelStyle, interests, budget, groupType, userId } =
     await request.json();
 
-  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
+  const ai = new GoogleGenAI({
+    apiKey: process.env.GEMINI_API_KEY!,
+  });
   const unsplashApiKey = process.env.UNSPLASH_ACCESS_KEY!;
 
   try {
@@ -60,11 +62,13 @@ export const action = async ({ request }: ActionFunctionArgs) => {
         ]
     }`;
 
-    const textResult = await genAI
-      .getGenerativeModel({ model: "gemini-3-flash-preview" })
-      .generateContent([prompt]);
+    const response = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: prompt,
+    });
 
-    const trip = parseMarkdownToJson(textResult.response.text());
+    if (!response.text) return console.error("[AI] was not able populate the content");
+    const trip = parseMarkdownToJson(response.text);
 
     const imageResponse = await fetch(
       `https://api.unsplash.com/search/photos?query=${country} ${interests} ${travelStyle}&client_id=${unsplashApiKey}`,
@@ -80,7 +84,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
       ID.unique(),
       {
         tripDetails: JSON.stringify(trip),
-        createdAt: new Date().toISOString(),
         imageUrls,
         userId,
       },
