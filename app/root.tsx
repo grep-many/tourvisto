@@ -10,7 +10,17 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 
+export const meta: Route.MetaFunction = () => [
+  { title: "Tourvisto — AI-Powered Travel Planner" },
+  {
+    name: "description",
+    content: "Plan smarter trips with AI-generated itineraries, maps, and booking tools.",
+  },
+  { name: "theme-color", content: "#1F1F36" },
+];
+
 export const links: Route.LinksFunction = () => [
+  { rel: "manifest", href: "/manifest.json" },
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   {
     rel: "preconnect",

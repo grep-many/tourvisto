@@ -223,18 +223,18 @@ docker run -p 3000:3000 tourvisto
 
 Environment variables are loaded from `.env.local` for Vite and from the runtime environment for server actions.
 
-| Variable | Description | Required |
-| --- | --- | --- |
-| `VITE_SYNCFUSION_LICENSE_KEY` | Syncfusion license key for UI components | Yes |
-| `VITE_APPWRITE_API_ENDPOINT` | Appwrite endpoint URL | Yes |
-| `VITE_APPWRITE_PROJECT_ID` | Appwrite project ID | Yes |
-| `VITE_APPWRITE_DATABASE_ID` | Appwrite database ID | Yes |
-| `VITE_APPWRITE_USERS_COLLECTION_ID` | Appwrite users collection ID | Yes |
-| `VITE_APPWRITE_TRIPS_COLLECTION_ID` | Appwrite trips collection ID | Yes |
-| `VITE_BASE_URL` | Base URL for Stripe redirect after payment | Yes |
-| `GEMINI_API_KEY` | Google Gemini API key | Yes |
-| `UNSPLASH_ACCESS_KEY` | Unsplash access key | Yes |
-| `STRIPE_SECRET_KEY` | Stripe secret key for server-side calls | Yes |
+| Variable                            | Description                                | Required |
+| ----------------------------------- | ------------------------------------------ | -------- |
+| `VITE_SYNCFUSION_LICENSE_KEY`       | Syncfusion license key for UI components   | Yes      |
+| `VITE_APPWRITE_API_ENDPOINT`        | Appwrite endpoint URL                      | Yes      |
+| `VITE_APPWRITE_PROJECT_ID`          | Appwrite project ID                        | Yes      |
+| `VITE_APPWRITE_DATABASE_ID`         | Appwrite database ID                       | Yes      |
+| `VITE_APPWRITE_USERS_COLLECTION_ID` | Appwrite users collection ID               | Yes      |
+| `VITE_APPWRITE_TRIPS_COLLECTION_ID` | Appwrite trips collection ID               | Yes      |
+| `VITE_BASE_URL`                     | Base URL for Stripe redirect after payment | Yes      |
+| `GEMINI_API_KEY`                    | Google Gemini API key                      | Yes      |
+| `UNSPLASH_ACCESS_KEY`               | Unsplash access key                        | Yes      |
+| `STRIPE_SECRET_KEY`                 | Stripe secret key for server-side calls    | Yes      |
 
 Optional local OAuth credentials file: `oauth.json.local` for Google OAuth configuration in Appwrite.
 
@@ -268,6 +268,5 @@ Optional local OAuth credentials file: `oauth.json.local` for Google OAuth confi
 ---
 
 # 📄 License
-
 
 MIT License. See [![License: MIT](https://img.shields.io/badge/License-MIT-2EA44F.svg)](./LICENSE).

@@ -8,8 +8,8 @@ export async function clientLoader() {
     const user = await account.get();
     if (user.$id) return redirect("/");
   } catch (e: any) {
-    if (e.code === 401) return null;
     console.error("[Error] clientLoader", e);
+    return redirect("/sign-in");
   }
 }
 
